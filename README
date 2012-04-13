@@ -1,0 +1,18 @@
+There are two classes BCImageView and BCImage. These classes will help you in downloading and caching the images from urls,
+asynchronouysly. 
+
+BCImageView
+Its a simple subclass of UIImageView. Instead of UIImageView, you should use this class to create image views in the Project.
+
+BCImageView * imageView = [BCImageView imageViewWithURL:@"<image-url>" placeHolderImage:@"<place_holer_image_name>"];
+
+Above line downlods the image at the specified url , stores it in Cache Directory. You can also pass a placeholder image name.
+By the time the actually image gets dwonloaded , the placeholder image would be displayed . The placeholder image should be available
+in the Application bundle. 
+
+Now next time you hit the same url to create the image view then it load the image that has been cached already. 
+
+If you at all want to flush out all the images that have been cached use below line.
+
+
+BOOL success  = [BCImage flushCacheDirectory];
